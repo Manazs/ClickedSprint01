@@ -2,14 +2,24 @@ public with sharing class BillAPI {
     
     public static void getBills() {
         //start by creating an HttpRequest object and set the endpoint and method.
-
+        
+        HttpRequest request = new HttpRequest();
+        request.setEndpoint('callout:Billing_API');
+        request.setMethod('GET');
+        
 
         //set up an Http object and an HTTPResponse Object and use the .getBody() method here.
 
-
+        Http http = new Http();
+        HTTPResponse response = new HTTPResponse();
+        response = http.send(request);
         //Use the following to deserialize the JSON response into a wrapper class:
-
-
+        List<BillWrapper> billwrapList = new List<BillWrapper>();
+        if(response.getStatusCode() == 200) {
+            System.debug(response.getBody());
+            billwrapList = (List<BillWrapper>) JSON.deserialize(response.getBody(),List<BillWrapper>.class);
+            System.debug(billwrapList);
+        }
         //create a list of bills to insert
 
 
