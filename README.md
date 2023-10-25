@@ -28,3 +28,6 @@ This experience will run from October 9-30th, with sessions after 4 PM PST.
 
 Changes...
 Making some changes for the first Clicked Dev Sprint to check how to push from VS Code to GitHub
+
+
+Checking for updates...........
